@@ -1,0 +1,147 @@
+<!--
+<div class="main">
+  <h1>Mattress J029</h1>
+
+  <mat-sidenav-container [className]="isOpen ? 'open' : ''" class="example-container">
+    <mat-sidenav #sidenav mode="over" position="end">
+      <mat-toolbar>
+        <span>Фільтри</span>
+        <button mat-icon-button (click)="sidenav.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <mat-accordion>
+        &lt;!&ndash; Expansion Panel для розміру &ndash;&gt;
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Розмір</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-checkbox>60x120</mat-checkbox>
+          <mat-checkbox>65x185</mat-checkbox>
+          <mat-checkbox>70x140</mat-checkbox>
+          &lt;!&ndash; Додайте інші чекбокси за потребою &ndash;&gt;
+        </mat-expansion-panel>
+
+        &lt;!&ndash; Expansion Panel для типу &ndash;&gt;
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Тип</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-checkbox>Тип 1</mat-checkbox>
+          <mat-checkbox>Тип 2</mat-checkbox>
+          <mat-checkbox>Тип 3</mat-checkbox>
+          &lt;!&ndash; Додайте інші чекбокси за потребою &ndash;&gt;
+        </mat-expansion-panel>
+
+        &lt;!&ndash; Expansion Panel для ціни &ndash;&gt;
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Ціна</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-checkbox>До 100 грн</mat-checkbox>
+          <mat-checkbox>100-200 грн</mat-checkbox>
+          <mat-checkbox>200-300 грн</mat-checkbox>
+          &lt;!&ndash; Додайте інші чекбокси за потребою &ndash;&gt;
+        </mat-expansion-panel>
+
+        <div class="quantity">
+          &lt;!&ndash; Вибір кількості &ndash;&gt;
+          <mat-form-field appearance="fill">
+            <mat-label>Кількість</mat-label>
+            <input matInput type="number" min="1">
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary">Показати результати</button>
+      </mat-accordion>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="main-content">
+        &lt;!&ndash; Кнопка для відкриття бокового меню &ndash;&gt;
+        <button mat-raised-button color="primary" (click)="sidenav.toggle()">
+          <mat-icon>filter_list</mat-icon> Відкрити фільтри
+        </button>
+
+        &lt;!&ndash; Основний вміст сторінки &ndash;&gt;
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <app-table></app-table>
+
+</div>
+-->
+<div class="main">
+  <h1>Mattress J029</h1>
+
+  <mat-sidenav-container [className]="isOpen ? 'open' : ''" class="example-container">
+    <mat-sidenav #sidenav mode="over" position="end">
+      <mat-toolbar>
+        <span>Фільтри</span>
+        <button mat-icon-button (click)="sidenav.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <mat-accordion>
+        <!-- Expansion Panel для розміру -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Розмір</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-checkbox class="custom-checkbox" *ngFor="let size of [1,2,3]">{{ size }}
+            <span class="quantity">
+            {{ 100 }}
+              </span>
+          </mat-checkbox>
+
+
+        </mat-expansion-panel>
+
+        <!-- Expansion Panel для типу -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Тип</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-checkbox *ngFor="let type of [1,2,3]">{{ type }}</mat-checkbox>
+          <!-- Кількість товарів для типу з бази даних -->
+          <span class="quantity" *ngFor="let type of [1,2,3]">
+            Кількість: {{ type }}
+          </span>
+        </mat-expansion-panel>
+
+        <!-- Expansion Panel для ціни -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Ціна</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-checkbox class="custom-checkbox" *ngFor="let price of [1, 2, 3]">
+            {{ price }}
+            <span class="quantity">
+      Кількість: {{ price }}
+    </span>
+          </mat-checkbox>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <button mat-raised-button color="primary">Показати результати</button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="main-content">
+        <!-- Кнопка для відкриття бокового меню -->
+        <button mat-raised-button color="primary" (click)="sidenav.toggle()">
+          <mat-icon>filter_list</mat-icon>
+          Відкрити фільтри
+        </button>
+
+        <!-- Основний вміст сторінки -->
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <app-table></app-table>
+
+</div>

@@ -1,0 +1,51 @@
+
+.table {
+  width: 100%;
+  table-layout: auto; // Це дозволяє колонкам автоматично підлаштовуватися під вміст
+}
+
+th, td {
+  color: white;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap; // Забезпечує, що текст не буде переноситися
+  overflow: hidden;
+  text-overflow: ellipsis; // Додає трикрапку, якщо текст не вміщується
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  background-color: #3f51b5; // Приклад кольору фону для заголовків колонок
+}
+
+.mat-column-article,
+.mat-column-name,
+.mat-column-size,
+.mat-column-status,
+.mat-column-prise,
+.mat-column-count {
+  width: fit-content; // Автоматично підлаштовує ширину під вміст тексту
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.table {
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  //border: 1px solid #ddd;
+}
+
+.table tr:nth-child(even) {
+  //background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: var(--darkGray);
+}

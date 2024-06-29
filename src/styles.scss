@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --mediumGray: #828fa3;
+  --darkGray: #2B2C37;
+  --lightGray: #F4F7FD;
+  --light-color:#FFFFFF;
+  --darkBlue: #635FC7;
+  --bg-main: #20212C;
+}
+
+body{
+  background: var(--darkGray);
+  color:  var(--light-color);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  appearance: none;
+  text-decoration: none ;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
