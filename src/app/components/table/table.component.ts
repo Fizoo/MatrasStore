@@ -1,57 +1,60 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSort, MatSortModule, Sort} from '@angular/material/sort';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {DecimalPipe} from "@angular/common";
-import {FormsModule} from "@angular/forms";
-
-
-export interface PeriodicElement {
-  name: string;
-  article: number;
-  size: number[];
-  count: number;
-  prise: number;
-  status: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {article: 1535467, name: 'S20 Plus', size: [90, 200], count: 1, prise: 10000, status: 11},
-  {article: 2535467, name: 'S20 Gold', size: [80, 200], count: 2, prise: 10000, status: 11},
-  {article: 3535467, name: 'S25 Gold', size: [180, 200], count: 5, prise: 10000, status: 11},
-  {article: 4535467, name: 'F95 Gold', size: [90, 200], count: 6, prise: 10000, status: 11},
-  {article: 5535467, name: 'S110 Gold', size: [120, 200], count: 0, prise: 10000, status: 11},
-  {article: 6535467, name: 'Carbon', size: [90, 200], count: 1, prise: 10000, status: 11},
-  {article: 7535467, name: 'Nitrogen', size: [140, 200], count: 3, prise: 10000, status: 11},
-  {article: 8535467, name: 'Oxygen', size: [90, 200], count: 0, prise: 10000, status: 11},
-  {article: 9535467, name: 'Fluorine', size: [160, 200], count: 1, prise: 10000, status: 11},
-  {article: 1053546, name: 'Neon', size: [90, 200], count: 2, prise: 10000, status: 11},
-];
+import {MatSortModule, Sort} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {FormsModule} from '@angular/forms';
+import {CommonModule, DecimalPipe} from '@angular/common';
+import {Mattress} from '../../../data/data';
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-table',
   standalone: true,
-
   templateUrl: './table.component.html',
-  styleUrl: './table.component.scss',
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule, DecimalPipe, FormsModule],
+  styleUrls: ['./table.component.scss'],
+  imports: [
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    FormsModule,
+    CommonModule,
+    DecimalPipe,
+    MatLabel,
+    MatFormField,
+    MatInput
+  ]
 })
-export class TableComponent {
-  displayedColumns: string[] = ['article', 'name', 'size', 'status', 'prise', 'count'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA)
-  sortedData: PeriodicElement[]
-  search: string = ''
+export class TableComponent implements OnInit {
+  displayedColumns: string[] = [];
+  columnDefs = [
+    { columnDef: 'sku', header: 'Article', cell: (element: Mattress) => element.sku },
+    { columnDef: 'name', header: 'Name', cell: (element: Mattress) => element.name },
+    { columnDef: 'size', header: 'Size', cell: (element: Mattress) => element.size },
+    { columnDef: 'status', header: 'Stat', cell: (element: Mattress) => element.status },
+    { columnDef: 'price', header: 'Price', cell: (element: Mattress) => element.price },
+    { columnDef: 'quantity', header: 'Quantity', cell: (element: Mattress) => element.quantity }
+  ];
+  dataSource: MatTableDataSource<Mattress> = new MatTableDataSource();
+  sortedData: Mattress[] = [];
+  search: string = '';
 
-  constructor() {
-    this.sortedData = [...this.dataSource.data]
-    console.log(this.search)
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
+    this.displayedColumns = this.columnDefs.map(c => c.columnDef);
+    this.dataService.data$.subscribe(mattresses => {
+      this.dataSource.data = mattresses;
+      this.sortedData = [...this.dataSource.data].filter(el=>el.quantity>0)
+    });
+    this.sortedData = [...this.dataSource.data].filter(el=>el.quantity>0)
   }
 
   applyFilter(event: Event) {
-    const copyList = [...this.dataSource.data];
-    this.sortedData = copyList.filter(a => a.name.toLowerCase().includes(this.search.toLowerCase()))
+    let filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+    this.dataSource.filter = filterValue;
+    this.sortedData = this.dataSource.filteredData;
   }
 
   sortData(sort: Sort) {
@@ -61,23 +64,21 @@ export class TableComponent {
       return;
     }
 
-    this.sortedData = data.sort((a: PeriodicElement, b: PeriodicElement) => {
+    this.sortedData = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'name':
           return this.compare(a.name, b.name, isAsc);
-        case 'article':
-          return this.compare(a.article, b.article, isAsc);
-
+        case 'sku':
+          return this.compare(a.sku, b.sku, isAsc);
         case 'size':
           return this.compare(a.size[0], b.size[0], isAsc);
-
-        case 'count':
-          return this.compare(a.count, b.count, isAsc);
-
+        case 'quantity':
+          return this.compare(a.quantity, b.quantity, isAsc);
         case 'status':
           return this.compare(a.status, b.status, isAsc);
-
+        case 'price':
+          return this.compare(a.price, b.price, isAsc);
         default:
           return 0;
       }

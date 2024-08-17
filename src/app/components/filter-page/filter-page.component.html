@@ -1,0 +1,95 @@
+<form [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+>
+  <mat-sidenav-container [className]="isOpen ? 'open' : ''" class="example-container">
+    <mat-sidenav #sidenav mode="over" position="end">
+      <mat-toolbar>
+        <span>Фільтри</span>
+        <button mat-icon-button (click)="sidenav.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Size</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div formArrayName="sizes">
+            @for (size of listSize; let idx = $index; track size) {
+              <div class="box">
+                <mat-checkbox [formControlName]="idx">
+                  {{ size }}
+                </mat-checkbox>
+                <span class="quantity">
+                   {{ countFn("size", size) }}
+                 </span>
+              </div>
+            }
+          </div>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Type</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div formArrayName="names">
+            @for (name of listName;let idx = $index; track name) {
+              @if (countFn("name", name) > 0) {
+                <div class="box">
+                  <mat-checkbox
+                    [formControlName]="idx"
+                    [value]="name"
+                  >
+                    {{ name }}
+                  </mat-checkbox>
+                  <span class="quantity">
+              {{ countFn("name", name) }}
+            </span>
+                </div>
+              }
+            }
+
+          </div>
+
+
+        </mat-expansion-panel>
+
+        <!-- Expansion Panel для ціни -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Price</mat-panel-title>
+          </mat-expansion-panel-header>
+          @for (price of [1, 2, 3]; track price) {
+            <div class="box">
+              <mat-checkbox>
+                {{ price }}
+              </mat-checkbox>
+              <span class="quantity">
+        {{ price }}
+      </span>
+            </div>
+          }
+
+
+        </mat-expansion-panel>
+
+      </mat-accordion>
+
+      <button mat-raised-button color="primary">Показати результати</button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="main-content">
+        <!-- Кнопка для відкриття бокового меню -->
+        <button mat-raised-button color="primary" (click)="sidenav.toggle()">
+          <mat-icon>filter_list</mat-icon>
+        </button>
+
+        <!-- Основний вміст сторінки -->
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</form>

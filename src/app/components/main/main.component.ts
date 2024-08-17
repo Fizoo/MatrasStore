@@ -1,15 +1,16 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {TableComponent} from "../table/table.component";
-import {MatSidenav, MatSidenavContainer,MatSidenavModule} from "@angular/material/sidenav";
+import {MatSidenav, MatSidenavContainer, MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbar} from "@angular/material/toolbar";
 import {MatIcon} from "@angular/material/icon";
 import {MatButton, MatIconButton} from "@angular/material/button";
 import {MatCheckbox} from "@angular/material/checkbox";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatFormField} from "@angular/material/form-field";
-import {MatAccordion, MatExpansionPanel, MatExpansionPanelTitle,MatExpansionModule} from "@angular/material/expansion";
+import {MatAccordion, MatExpansionModule, MatExpansionPanel, MatExpansionPanelTitle} from "@angular/material/expansion";
 import {MatInput} from "@angular/material/input";
 import {NgForOf} from "@angular/common";
+import {FilterPageComponent} from "../filter-page/filter-page.component";
 
 @Component({
   selector: 'app-main',
@@ -32,23 +33,12 @@ import {NgForOf} from "@angular/common";
     MatAccordion,
     MatExpansionModule,
     MatInput,
-    NgForOf
+    NgForOf,
+    FilterPageComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  @ViewChild('sidenav') sidenav: MatSidenav;
-  isOpen=false
 
-
-  toggle() {
-
-      this.sidenav.toggle()
-    }
-
-  close() {
-    this.sidenav.close()
-
-  }
 }

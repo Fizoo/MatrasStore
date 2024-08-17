@@ -1,0 +1,70 @@
+
+.example-container {
+  height: 100vh; /* Висота на весь екран */
+  z-index: 1000; /* Велике значення z-index, щоб бути поверх інших елементів */
+  position: relative; /* Потрібно для правильного позиціонування */
+}
+
+.mat-drawer {
+  min-width: 250px; /* Ширина бокового меню */
+  z-index: 1001; /* Забезпечує, що бокове меню знаходиться над основним вмістом */
+}
+.mat-sidenav-backdrop {
+  z-index: 1000; /* Забезпечує, що затемнення на фоні також знаходиться під меню */
+}
+.filter-content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem;
+}
+/* Стилі для розміщення чекбоксів по лівому та правому краю */
+/* Стилі для розміщення чекбоксів по лівому та правому краю */
+.custom-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 8px; /* Відступ між чекбоксами */
+}
+
+.custom-checkbox .mat-checkbox-label {
+  flex: 1; /* Розтягуємо текст чекбоксу на всю доступну ширину */
+}
+
+.custom-checkbox .quantity {
+  margin-left: 16px; /* Відступ зліва для кількості товарів */
+}
+
+/* Стилі для Expansion Panel */
+.mat-expansion-panel-content {
+  display: flex;
+  flex-direction: column;
+}
+/*.mdc-label{
+  //text-align: right;
+}
+
+.mdc-form-field{
+  display: flex !important;
+  justify-content: space-between;
+  width: 200px;
+  label {
+    color: red;
+    width: 200px;
+  }
+}*/
+mat-checkbox{
+ // width: 100%;
+}
+.box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  .quantity{
+    margin-right:  2rem;
+  }
+}
