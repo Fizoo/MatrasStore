@@ -2,6 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Mattress } from "../../data/data";
 import {dataActualMini} from "../../data/dataActualMini";
+import {LocalStorageService} from "./local-storage.service";
 
 
 @Injectable({
@@ -11,16 +12,26 @@ export class DataService implements OnDestroy {
   private database$: BehaviorSubject<Mattress[]> = new BehaviorSubject<Mattress[]>([]);
   private originalData: Mattress[] = dataActualMini;
 
-  constructor() {
-    this.setData(this.originalData);
+
+  constructor(private localStorageService: LocalStorageService) {
+
+    if (this.localStorageService.hasData()) {
+      this.setData(this.localStorageService.loadData());
+    } else {
+      this.setData(this.originalData);
+      this.localStorageService.saveData(this.originalData); // Збереження початкових даних
+    }
   }
 
+
   get data$(): Observable<Mattress[]> {
-    return this.database$.asObservable();
+    return this.database$.asObservable()
+
   }
 
   private setData(data: Mattress[]): void {
-    this.database$.next(data);
+    this.database$.next(data)
+    this.localStorageService.saveData(data)
   }
 
   addData(data: Mattress): void {

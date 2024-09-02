@@ -7,70 +7,62 @@ export const dataActualMini:Mattress[]=[
     "price": 11999,
     "status": 11,
     "sku": 3262332,
-    "quantity": 5
-  },
-  {
-    "name": "BASIC F10",
-    "size": "90x200",
-    "price": 1500,
-    "status": 11,
-    "sku": 3243072,
-    "quantity": 4
-  },
-  {
-    "name": "BASIC F90",
-    "size": "90x200",
-    "price": 2000,
-    "status": 11,
-    "sku": 3260423,
     "quantity": 3
   },
   {
     "name": "BASIC S25",
     "size": "90x200",
     "price": 3250,
-    "status": 41,
-    "sku": 3383221,
-    "quantity": 3
-  },
-  {
-    "name": "GOLD S110",
-    "size": "140x200",
-    "price": 42999,
-    "status": 41,
-    "sku": 3376332,
-    "quantity": 3
-  },
-  {
-    "name": "GOLD F85",
-    "size": "120x200",
-    "price": 15000,
     "status": 11,
-    "sku": 3282382,
+    "sku": 3269632,
     "quantity": 3
   },
   {
-    "name": "PLUS S55",
-    "size": "90x200",
-    "price": 5500,
-    "status": 11,
-    "sku": 3378832,
-    "quantity": 3
-  },
-  {
-    "name": "GOLD S85",
+    "name": "GOLD F100",
     "size": "160x200",
-    "price": 49999,
-    "status": 41,
-    "sku": 3376308,
+    "price": 39999,
+    "status": 11,
+    "sku": 3351978,
+    "quantity": 3
+  },
+  {
+    "name": "GOLD F35",
+    "size": "90x200",
+    "price": 13999,
+    "status": 11,
+    "sku": 3228232,
     "quantity": 2
   },
   {
-    "name": "GOLD F105",
+    "name": "PLUS S65",
+    "size": "90x200",
+    "price": 10999,
+    "status": 11,
+    "sku": 3257832,
+    "quantity": 2
+  },
+  {
+    "name": "GOLD F30",
     "size": "160x200",
-    "price": 25999,
-    "status": 41,
-    "sku": 3376312,
+    "price": 21999,
+    "status": 11,
+    "sku": 3262378,
+    "quantity": 2
+  },
+  {
+    "name": "PLUS S25",
+    "size": "160x200",
+    "price": 15999,
+    "status": 11,
+    "sku": 3264378,
+    "quantity": 2
+  },
+  {
+    "name": "BASIC F50",
+    "size": "90x200",
+    "price": 2000,
+    "status": 11,
+    "sku": 3267432,
     "quantity": 2
   },
   {
@@ -78,55 +70,217 @@ export const dataActualMini:Mattress[]=[
     "size": "160x200",
     "price": 6000,
     "status": 11,
-    "sku": 3260483,
+    "sku": 3269678,
     "quantity": 2
   },
   {
-    "name": "GOLD R85",
+    "name": "PLUS F100",
     "size": "90x200",
-    "price": 16999,
-    "status": 41,
-    "sku": 3379022,
+    "price": 9999,
+    "status": 11,
+    "sku": 3269832,
+    "quantity": 2
+  },
+  {
+    "name": "PLUS F100",
+    "size": "160x200",
+    "price": 17999,
+    "status": 11,
+    "sku": 3269878,
     "quantity": 2
   },
   {
     "name": "BASIC F5",
-    "size": "80x200",
-    "price": 1350,
+    "size": "90x200",
+    "price": 1250,
     "status": 11,
-    "sku": 3260494,
-    "quantity": 1
+    "sku": 3310932,
+    "quantity": 2
   },
   {
-    "name": "BASIC S5",
-    "size": "160x200",
-    "price": 1999,
-    "status": 11,
-    "sku": 3246737,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD F95",
-    "size": "160x200",
-    "price": 39999,
+    "name": "GOLD S110",
+    "size": "90x200",
+    "price": 26999,
     "status": 41,
-    "sku": 3377302,
+    "sku": 3269332,
+    "quantity": 2
+  },
+  {
+    "name": "GOLD S110",
+    "size": "140x200",
+    "price": 42999,
+    "status": 41,
+    "sku": 3269397,
+    "quantity": 2
+  },
+  {
+    "name": "GOLD F100",
+    "size": "180x200",
+    "price": 48999,
+    "status": 11,
+    "sku": 3269387,
+    "quantity": 2
+  },
+  {
+    "name": "GOLD S25",
+    "size": "160x200",
+    "price": 29999,
+    "status": 11,
+    "sku": 33373078,
+    "quantity": 2
+  },
+  {
+    "name": "GOLD F85",
+    "size": "90x200",
+    "price": 31999,
+    "status": 11,
+    "sku": 33379078,
+    "quantity": 2
+  },
+  {
+    "name": "GOLD S45",
+    "size": "160x200",
+    "price": 22999,
+    "status": 11,
+    "sku": 33380932,
+    "quantity": 2
+  },
+  {
+    "name": "GOLD S25",
+    "size": "90x200",
+    "price": 8500,
+    "status": 11,
+    "sku": 3373032,
+    "quantity": 1
+  },
+  {
+    "name": "GOLD F35",
+    "size": "160x200",
+    "price": 25999,
+    "status": 11,
+    "sku": 33379032,
+    "quantity": 1
+  },
+  {
+    "name": "BASIC F10",
+    "size": "90x200",
+    "price": 1500,
+    "status": 11,
+    "sku": 33324232,
+    "quantity": 1
+  },
+  {
+    "name": "GOLD F110",
+    "size": "90x200",
+    "price": 22999,
+    "status": 41,
+    "sku": 3260432,
+    "quantity": 1
+  },
+  {
+    "name": "GOLD F120",
+    "size": "90x200",
+    "price": 23999,
+    "status": 41,
+    "sku": 3260832,
+    "quantity": 1
+  },
+  {
+    "name": "PLUS S25",
+    "size": "90x200",
+    "price": 8999,
+    "status": 41,
+    "sku": 3264332,
+    "quantity": 1
+  },
+  {
+    "name": "BASIC S25",
+    "size": "140x200",
+    "price": 5000,
+    "status": 41,
+    "sku": 3269657,
+    "quantity": 1
+  },
+  {
+    "name": "PLUS S55",
+    "size": "90x200",
+    "price": 9999,
+    "status": 41,
+    "sku": 3343732,
+    "quantity": 1
+  },
+  {
+    "name": "GOLD F100",
+    "size": "90x200",
+    "price": 21999,
+    "status": 41,
+    "sku": 3351932,
+    "quantity": 1
+  },
+  {
+    "name": "GOLD S100",
+    "size": "90x200",
+    "price": 24999,
+    "status": 41,
+    "sku": 3373132,
+    "quantity": 1
+  },
+  {
+    "name": "GOLD S60",
+    "size": "90x200",
+    "price": 19999,
+    "status": 41,
+    "sku": 3373532,
+    "quantity": 1
+  },
+  {
+    "name": "GOLD S60",
+    "size": "140x200",
+    "price": 31999,
+    "status": 41,
+    "sku": 3373557,
     "quantity": 1
   },
   {
     "name": "GOLD F85",
     "size": "90x200",
-    "price": 11000,
-    "status": 41,
-    "sku": 3377322,
+    "price": 16999,
+    "status": 11,
+    "sku": 3379032,
     "quantity": 1
   },
   {
-    "name": "GOLD S95",
-    "size": "160x200",
-    "price": 41999,
+    "name": "BASIC S25",
+    "size": "90x200",
+    "price": 5000,
     "status": 41,
-    "sku": 3376348,
+    "sku": 3269657,
     "quantity": 1
+  },
+  {
+    "name": "PLUS S25",
+    "size": "90x200",
+    "price": 8999,
+    "status": 41,
+    "sku": 3264332,
+    "quantity": 1
+  },
+  {
+    "name": "GOLD F30",
+    "size": "160x200",
+    "price": 21999,
+    "status": 11,
+    "sku": 3262378,
+    "quantity": 2
+  },
+  {
+    "name": "BASIC S25",
+    "size": "160x200",
+    "price": 6000,
+    "status": 11,
+    "sku": 3269678,
+    "quantity": 2
   }
 ]
+
+
