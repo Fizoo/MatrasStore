@@ -2,8 +2,13 @@
 .table {
   width: 100%;
   table-layout: auto; // Це дозволяє колонкам автоматично підлаштовуватися під вміст
-}
 
+}
+.loading-spinner,.error-message{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 th, td {
   color: white;
   padding: 8px;

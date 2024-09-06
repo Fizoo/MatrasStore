@@ -41,4 +41,5 @@ import {FilterPageComponent} from "../filter-page/filter-page.component";
 })
 export class MainComponent {
 
+
 }
