@@ -35,7 +35,7 @@
             <mat-panel-title>Type</mat-panel-title>
           </mat-expansion-panel-header>
           <div formArrayName="names">
-            @for (name of listName;let idx = $index; track name) {
+            @for (name of listName; let idx = $index; track name) {
               @if (countFn("name", name) > 0) {
                 <div class="box">
                   <mat-checkbox
@@ -45,14 +45,12 @@
                     {{ name }}
                   </mat-checkbox>
                   <span class="quantity">
-              {{ countFn("name", name) }}
-            </span>
+                    {{ countFn("name", name) }}
+                  </span>
                 </div>
               }
             }
-
           </div>
-
 
         </mat-expansion-panel>
 
@@ -72,12 +70,10 @@
             </div>
           }
 
-
         </mat-expansion-panel>
-
       </mat-accordion>
 
-      <button mat-raised-button color="primary">Показати результати</button>
+      <button mat-raised-button type="submit" color="primary">Показати результати</button>
     </mat-sidenav>
 
     <mat-sidenav-content>

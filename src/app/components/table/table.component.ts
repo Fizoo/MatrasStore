@@ -7,12 +7,13 @@ import {CommonModule, DecimalPipe} from '@angular/common';
 import {Mattress} from '../../../data/data';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
-import {DataService} from "../../services/data.service";
 import {FirebaseDataService} from "../../services/firebase-data.service";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import {debounceTime} from "rxjs";
 import {MatButton} from "@angular/material/button";
-import {dataActualMini} from "../../../data/dataActualMini";
+import {MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {DialogElementComponent} from "./dialog-element/dialog-element.component";
+import {combineLatest} from "rxjs";
+import {FilterService} from "../../services/filter.service";
 
 @Component({
   selector: 'app-table',
@@ -30,10 +31,16 @@ import {dataActualMini} from "../../../data/dataActualMini";
     MatFormField,
     MatInput,
     MatProgressSpinner,
-    MatButton
+    MatButton,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogTitle,
+    MatDialogClose
   ]
 })
 export class TableComponent implements OnInit {
+
+
   displayedColumns: string[] = []
   columnDefs = [
     { columnDef: 'sku', header: 'Article', cell: (element: Mattress) => element.sku },
@@ -49,27 +56,38 @@ export class TableComponent implements OnInit {
   search: string = ''
   isLoading = true
   isError=''
+  isEditFormOpen = false
+  selectedMattress: Mattress
 
-  constructor(private firebaseService:FirebaseDataService) { }
+
+  constructor(private firebaseService:FirebaseDataService,private dialog: MatDialog,private filterService:FilterService) { }
 
   ngOnInit() {
     this.displayedColumns = this.columnDefs.map(c => c.columnDef)
 
-    // Використання Observable для завантаження даних
-    this.firebaseService.getAllMattresses().subscribe({
-      next:data => {
-        console.log('hello')
+    combineLatest([
+      this.firebaseService.getAllMattresses(), // Потік з Firebase
+      this.filterService.selectedNames$,
+      this.filterService.selectedSizes$// Ваш rxjs потік
+    ]).subscribe({
+      next: ([allMattresses, names, sizes]) => {
+        // Використовуємо дані з  джерел
+        this.dataSource.data = allMattresses.filter(el =>{
+          const matchesQuantity = el.quantity > 0;
+          const matchesName = !names.length || names.includes(el.name); // Фільтр по іменах
+          const matchesSize = !sizes.length || sizes.includes(el.size); // Фільтр по розмірах
+          return matchesQuantity && matchesName && matchesSize;
+        })
+        this.sortedData = [...this.dataSource.data];
 
-      this.dataSource.data = data.filter(el => el.quantity > 0)
-      this.sortedData = [...this.dataSource.data]
-      this.isLoading=false
-    },
-      error: err => {
-        console.error('Error retrieving data:', err)
-        this.isError=err
-        this.isLoading=false   // Зупиняємо завантаження, якщо виникла помилка
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error('Error retrieving data:', err);
+        this.isError = err;
+        this.isLoading = false;
       }
-    })
+    });
 
     this.sortedData = [...this.dataSource.data].filter(el=>el.quantity>0)
   }
@@ -79,6 +97,61 @@ export class TableComponent implements OnInit {
     this.dataSource.filter = filterValue;
     this.sortedData = this.dataSource.filteredData;
   }
+
+  openEditDialog(element: Mattress) {
+    const dialogRef = this.dialog.open(DialogElementComponent, {
+      width: '400px',
+      data: { ...element }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.firebaseService.updateMattress(result.sku, {
+          price: result.price,
+          quantity: result.quantity
+        }).subscribe(() => ({
+          // Після успішного оновлення, перезавантажуємо дані
+         next: this.firebaseService.getAllMattresses().subscribe(data => {
+            this.sortedData = data;
+          }),
+          error: (err:any) => {
+            console.error('Error retrieving data:', err);
+            this.isError = err.message;
+            this.isLoading = false;
+          }
+        }));
+      }
+    });
+  }
+
+
+  updateMattress() {
+    if (this.selectedMattress) {
+      this.firebaseService.updateMattress(this.selectedMattress.sku, {
+        price: this.selectedMattress.price,
+        quantity: this.selectedMattress.quantity
+      }).subscribe({
+        next: () => {
+          this.isEditFormOpen = false;
+          this.firebaseService.getAllMattresses().subscribe({
+            next: data => {
+              this.dataSource.data = data;
+              this.isLoading = false;
+            },
+            error: err => {
+              console.error('Error retrieving data:', err);
+              this.isError = err.message;
+              this.isLoading = false;
+            }
+          });
+        },
+        error: err => {
+          console.error('Error updating data:', err);
+        }
+      });
+    }
+  }
+
 
   sortData(sort: Sort) {
     const data = this.sortedData.slice();
@@ -112,4 +185,9 @@ export class TableComponent implements OnInit {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
 
+  updateEl(element:Mattress) {
+    this.firebaseService.updateMattress(element.sku, {quantity:1}).subscribe()
+    console.log('hello')
+    console.log(element)
+  }
 }

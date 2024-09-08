@@ -12,9 +12,6 @@ export class DataService implements OnDestroy {
   private database$: BehaviorSubject<Mattress[]> = new BehaviorSubject<Mattress[]>([]);
   private originalData: Mattress[] = dataActualMini;
 
-
-
-
   get data$(): Observable<Mattress[]> {
     return this.database$.asObservable()
 

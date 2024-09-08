@@ -12,8 +12,9 @@ import {
 import {MatCheckbox} from "@angular/material/checkbox";
 import {Mattress} from "../../../data/data";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {DataService} from "../../services/data.service";
 import {Subscription} from "rxjs";
+import {FirebaseDataService} from "../../services/firebase-data.service";
+import {FilterService} from "../../services/filter.service";
 
 
 @Component({
@@ -40,29 +41,34 @@ import {Subscription} from "rxjs";
 })
 export class FilterPageComponent implements OnInit, OnDestroy {
   allData: Mattress[] = [];
+  filteredData: Mattress[] = [];
   listName: string[] = [];
   listSize: string[] = [];
   form: FormGroup;
-  private dataSubscription: Subscription;
+  private dataSubscription: Subscription
 
-  @ViewChild('sidenav') sidenav: MatSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav
+
   isOpen: any;
 
   constructor(
     private fb: FormBuilder,
-    private dataService: DataService
+    private firebaseData: FirebaseDataService,
+    private filterService: FilterService
   ) {}
 
   ngOnInit() {
     this.initForm();
 
-    this.dataSubscription = this.dataService.data$.subscribe(data => {
+    // Отримання всіх даних та імена/розміри для чекбоксів
+    this.dataSubscription = this.firebaseData.getAllMattresses().subscribe(data => {
       this.allData = data;
       this.listName = Array.from(new Set(this.allData.map(el => el.name)));
       this.listSize = Array.from(new Set(this.allData.map(el => el.size)));
       this.updateFormControls();
     });
-  }
+    // Підписуємось на зміни у формі
+     }
 
   private initForm(): void {
     this.form = this.fb.group({
@@ -80,16 +86,31 @@ export class FilterPageComponent implements OnInit, OnDestroy {
     return items.map(() => this.fb.control(false));
   }
 
+  private applyFilters(): void {
+    const selectedSizes = this.listSize.filter((_, i) => this.form.get('sizes')?.value[i]);
+    const selectedNames = this.listName.filter((_, i) => this.form.get('names')?.value[i]);
+
+    this.firebaseData.filterMattresses(selectedSizes, selectedNames).subscribe(filtered => {
+      this.filteredData = filtered;
+    });
+  }
+
   onSubmit(): void {
     const { sizes, names } = this.form.value;
     const selectedSizes = this.listSize.filter((_, i) => sizes[i]);
     const selectedNames = this.listName.filter((_, i) => names[i]);
 
     if (selectedSizes.length === 0 && selectedNames.length === 0) {
-      this.dataService.resetData();
+      this.filterService.clearFilters()
     } else {
-      this.dataService.filterData(selectedSizes, selectedNames);
+      if (selectedSizes.length > 0) {
+        this.filterService.addSizes(selectedSizes);
+      }
+      if (selectedNames.length > 0) {
+        this.filterService.addNames(selectedNames);
+      }
     }
+
   }
 
   ngOnDestroy(): void {
@@ -98,13 +119,6 @@ export class FilterPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  toggleSidenav(): void {
-    this.sidenav.toggle();
-  }
-
-  closeSidenav(): void {
-    this.sidenav.close();
-  }
 
   countFn(field: keyof Mattress, value: any): number {
     return this.allData.filter(el => el[field] === value && el.quantity > 0).length;
@@ -115,4 +129,6 @@ export class FilterPageComponent implements OnInit, OnDestroy {
       .sort((a, b) => b.quantity - a.quantity)
       .map(el => el.name);
   }
+
+
 }

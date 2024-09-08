@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Database, ref, set, get, update, remove, child} from '@angular/fire/database';
-import { Observable, from } from 'rxjs';
+import {Observable, from, map} from 'rxjs';
 import { Mattress } from '../../data/data';
 
 @Injectable({
@@ -19,14 +19,14 @@ export class FirebaseDataService {
       return acc;
     }, {} as { [key: number]: Mattress });
 
-    const mattressesRef = ref(this.db, this.basePath);
-    return from(set(mattressesRef, mattressesObject));
+    const mattressesRef = ref(this.db, this.basePath)
+    return from(set(mattressesRef, mattressesObject))
   }
 
   // Оновлення матраца за sku
   updateMattress(sku: number, updatedData: Partial<Mattress>): Observable<void> {
-    const mattressRef = ref(this.db, `${this.basePath}/${sku}`);
-    return from(update(mattressRef, updatedData));
+    const mattressRef = ref(this.db, `${this.basePath}/${sku}`)
+    return from(update(mattressRef, updatedData))
   }
 
   getAllMattresses2(): Observable<Mattress[]> {
@@ -58,5 +58,17 @@ export class FirebaseDataService {
   deleteMattress(sku: number): Observable<void> {
     const mattressRef = ref(this.db, `${this.basePath}/${sku}`);
     return from(remove(mattressRef));
+  }
+
+  filterMattresses(selectedSizes: string[], selectedNames: string[]): Observable<Mattress[]> {
+    return this.getAllMattresses().pipe(
+      map(mattresses => {
+        return mattresses.filter(mattress => {
+          const matchesSize = selectedSizes.length === 0 || selectedSizes.includes(mattress.size);
+          const matchesName = selectedNames.length === 0 || selectedNames.includes(mattress.name);
+          return matchesSize && matchesName;
+        });
+      })
+    );
   }
 }

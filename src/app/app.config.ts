@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideDatabase(() => getDatabase()),
-    provideRouter([]),
+    provideRouter([]), provideAnimationsAsync(),
   ]
 
 };
