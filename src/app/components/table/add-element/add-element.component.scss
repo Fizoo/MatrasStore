@@ -1,0 +1,15 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 16px; // Відступ між полями
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px; // Відступ між кнопками
+}

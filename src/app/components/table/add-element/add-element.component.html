@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Додати новий матрац</h1>
+<div mat-dialog-content>
+  <form [formGroup]="mattressForm" class="form-container">
+    @for (field of formFields; track field) {
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>{{ field.label }}</mat-label>
+        <input matInput [formControlName]="field.controlName" [type]="field.type" required>
+        @if (mattressForm.get(field.controlName)?.invalid) {
+          <mat-error>{{ field.errorMessage }}</mat-error>
+        }
+      </mat-form-field>
+    }
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Відміна</button>
+  <button mat-button [disabled]="!mattressForm.valid" (click)="onSubmit()">Додати</button>
+</div>

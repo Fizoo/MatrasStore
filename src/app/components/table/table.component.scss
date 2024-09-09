@@ -1,5 +1,6 @@
 
 .table {
+  position: relative;
   width: 100%;
   table-layout: auto; // Це дозволяє колонкам автоматично підлаштовуватися під вміст
 
@@ -53,4 +54,14 @@ th, td {
 
 .table tr:hover {
   background-color: var(--darkGray);
+}
+
+.addElement{
+  position: absolute;
+  top: -9%;
+  right: 10%;
+  opacity: 0.5;
+  &:hover{
+    opacity: 0.8;
+  }
 }

@@ -12,15 +12,12 @@ export class FirebaseDataService {
   constructor(private db: Database) {}
 
   // Метод для додавання масиву матрасів
-  addMattresses(mattresses: Mattress[]): Observable<void> {
-    // Створюємо об'єкт, де ключами є sku
-    const mattressesObject = mattresses.reduce((acc, mattress) => {
-      acc[mattress.sku] = mattress;
-      return acc;
-    }, {} as { [key: number]: Mattress });
+  addMattresses(mattresses: Mattress): Observable<void> {
+    // Отримуємо посилання на базу даних, де використовуємо поле SKU як ключ
+    const mattressRef = ref(this.db, `${this.basePath}/${mattresses.sku}`);
 
-    const mattressesRef = ref(this.db, this.basePath)
-    return from(set(mattressesRef, mattressesObject))
+    // Використовуємо Firebase 'set' для додавання або оновлення даних
+    return from(set(mattressRef, mattresses));
   }
 
   // Оновлення матраца за sku
