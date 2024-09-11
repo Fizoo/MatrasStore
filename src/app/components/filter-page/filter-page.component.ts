@@ -15,6 +15,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {Subscription} from "rxjs";
 import {FirebaseDataService} from "../../services/firebase-data.service";
 import {FilterService} from "../../services/filter.service";
+import {FilterSignalService} from "../../services/filter-signal.service";
 
 
 @Component({
@@ -54,7 +55,8 @@ export class FilterPageComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private firebaseData: FirebaseDataService,
-    private filterService: FilterService
+    private filterService: FilterService,
+    private filterSignalService: FilterSignalService
   ) {}
 
   ngOnInit() {
@@ -104,10 +106,12 @@ export class FilterPageComponent implements OnInit, OnDestroy {
       this.filterService.clearFilters()
     } else {
       if (selectedSizes.length > 0) {
+        this.filterSignalService.addSize(selectedSizes);
         this.filterService.addSizes(selectedSizes);
       }
       if (selectedNames.length > 0) {
         this.filterService.addNames(selectedNames);
+        this.filterSignalService.addName(selectedNames);
       }
     }
 

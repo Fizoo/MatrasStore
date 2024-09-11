@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Database, ref, set, get, update, remove, child} from '@angular/fire/database';
-import {Observable, from, map} from 'rxjs';
+import {Observable, from, map, combineLatest} from 'rxjs';
 import { Mattress } from '../../data/data';
 
 @Injectable({
@@ -67,5 +67,15 @@ export class FirebaseDataService {
         });
       })
     );
+  }
+
+  addMattressesArray(mattresses: Mattress[]): Observable<void[]> {
+    const tasks: Observable<void>[] = mattresses.map(mattress => {
+      const mattressRef = ref(this.db, `${this.basePath}/${mattress.sku}`);
+      return from(set(mattressRef, mattress));
+    });
+
+    // Використовуємо combineLatest для того, щоб виконати всі операції одночасно
+    return combineLatest(tasks);
   }
 }

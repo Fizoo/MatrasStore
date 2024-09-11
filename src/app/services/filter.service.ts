@@ -6,21 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FilterService {
    selectedNamesSubject = new BehaviorSubject<string[]>([]);
-  private selectedSizesSubject = new BehaviorSubject<string[]>([]);
+   selectedSizesSubject = new BehaviorSubject<string[]>([]);
 
   selectedNames$ = this.selectedNamesSubject.asObservable();
   selectedSizes$ = this.selectedSizesSubject.asObservable();
 
-  // Перезаписуємо ім'я у фільтрі
-  addName(name: string) {
-    this.selectedNamesSubject.next([name]);  // Перезаписуємо нове значення
-  }
 
-  // Видалення імені з фільтра
-  removeName(name: string) {
-    const currentNames = this.selectedNamesSubject.getValue();
-    this.selectedNamesSubject.next(currentNames.filter(n => n !== name));
-  }
 
   // Перезаписуємо розмір у фільтрі
   addSizes(sizes: string[]) {
@@ -35,6 +26,17 @@ export class FilterService {
   removeSize(size: string) {
     const currentSizes = this.selectedSizesSubject.getValue();
     this.selectedSizesSubject.next(currentSizes.filter(s => s !== size));
+  }
+
+  // Перезаписуємо ім'я у фільтрі
+  addName(name: string) {
+    this.selectedNamesSubject.next([name]);  // Перезаписуємо нове значення
+  }
+
+  // Видалення імені з фільтра
+  removeName(name: string) {
+    const currentNames = this.selectedNamesSubject.getValue();
+    this.selectedNamesSubject.next(currentNames.filter(n => n !== name));
   }
 
   // Очистка фільтрів
@@ -52,4 +54,6 @@ export class FilterService {
   getSelectedSizes(): string[] {
     return this.selectedSizesSubject.getValue();
   }
+
+
 }

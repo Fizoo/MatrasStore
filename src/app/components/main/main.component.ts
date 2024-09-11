@@ -11,6 +11,7 @@ import {MatAccordion, MatExpansionModule, MatExpansionPanel, MatExpansionPanelTi
 import {MatInput} from "@angular/material/input";
 import {NgForOf} from "@angular/common";
 import {FilterPageComponent} from "../filter-page/filter-page.component";
+import {FilterListComponent} from "../filter-list/filter-list.component";
 
 @Component({
   selector: 'app-main',
@@ -35,6 +36,7 @@ import {FilterPageComponent} from "../filter-page/filter-page.component";
     MatInput,
     NgForOf,
     FilterPageComponent,
+    FilterListComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'

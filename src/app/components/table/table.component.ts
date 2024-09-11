@@ -16,6 +16,7 @@ import {combineLatest} from "rxjs";
 import {FilterService} from "../../services/filter.service";
 import {MatIcon} from "@angular/material/icon";
 import {AddElementComponent} from "./add-element/add-element.component";
+import {FilterListComponent} from "../filter-list/filter-list.component";
 
 @Component({
   selector: 'app-table',
@@ -41,7 +42,8 @@ import {AddElementComponent} from "./add-element/add-element.component";
     MatFabButton,
     MatMiniFabButton,
     MatIconButton,
-    MatIcon
+    MatIcon,
+    FilterListComponent
   ]
 })
 export class TableComponent implements OnInit {
@@ -63,17 +65,23 @@ export class TableComponent implements OnInit {
   isLoading = true
   isError=''
 
-  constructor(private firebaseService:FirebaseDataService,private dialog: MatDialog,private filterService:FilterService) { }
+  constructor(private firebaseService:FirebaseDataService,
+              private dialog: MatDialog,
+              private filterService:FilterService,
+            ) {
+   }
 
   ngOnInit() {
     this.displayedColumns = this.columnDefs.map(c => c.columnDef)
 
     combineLatest([
       this.firebaseService.getAllMattresses(), // Потік з Firebase
+
       this.filterService.selectedNames$,
       this.filterService.selectedSizes$// Ваш rxjs потік
     ]).subscribe({
       next: ([allMattresses, names, sizes]) => {
+        console.log(names,sizes)
         // Використовуємо дані з  джерел
         this.dataSource.data = allMattresses.filter(el =>{
           const matchesQuantity = el.quantity > 0;

@@ -1,0 +1,16 @@
+@if (activeFilters$ | async ; as activeFilters) {
+  @if (activeFilters.length > 0) {
+    <div class="filter-summary">
+      <button mat-stroked-button color="warn" (click)="clearAllFilters()">Clear</button>
+
+      @for (filter of activeFilters; track filter) {
+        <button mat-stroked-button color="primary" class="filter-button">
+          {{ filter }}
+          <mat-icon (click)="removeFilter(filter)">close</mat-icon>
+        </button>
+      }
+    </div>
+  } @else {
+
+  }
+}

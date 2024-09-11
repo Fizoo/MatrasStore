@@ -3,8 +3,9 @@
 <mat-form-field *ngIf="!isLoading && !isError">
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Search" [(ngModel)]="search">
-
 </mat-form-field>
+
+<app-filter-list></app-filter-list>
 
 <div class="table">
 
