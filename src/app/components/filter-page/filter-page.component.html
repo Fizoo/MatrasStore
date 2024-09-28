@@ -54,26 +54,10 @@
 
         </mat-expansion-panel>
 
-        <!-- Expansion Panel для ціни -->
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>Price</mat-panel-title>
-          </mat-expansion-panel-header>
-          @for (price of [1, 2, 3]; track price) {
-            <div class="box">
-              <mat-checkbox>
-                {{ price }}
-              </mat-checkbox>
-              <span class="quantity">
-        {{ price }}
-      </span>
-            </div>
-          }
-
-        </mat-expansion-panel>
       </mat-accordion>
 
       <button mat-raised-button type="submit" color="primary">Показати результати</button>
+      <button mat-raised-button (click)="updateData()" color="primary">Update</button>
     </mat-sidenav>
 
     <mat-sidenav-content>

@@ -20,6 +20,7 @@ export class FirebaseDataService {
     return from(set(mattressRef, mattresses));
   }
 
+
   // Оновлення матраца за sku
   updateMattress(sku: number, updatedData: Partial<Mattress>): Observable<void> {
     const mattressRef = ref(this.db, `${this.basePath}/${sku}`)

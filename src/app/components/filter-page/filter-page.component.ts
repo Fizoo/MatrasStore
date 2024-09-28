@@ -16,6 +16,7 @@ import {Subscription} from "rxjs";
 import {FirebaseDataService} from "../../services/firebase-data.service";
 import {FilterService} from "../../services/filter.service";
 import {FilterSignalService} from "../../services/filter-signal.service";
+import {dataActualMini2} from "../../../data/dataActualMini";
 
 
 @Component({
@@ -135,4 +136,7 @@ export class FilterPageComponent implements OnInit, OnDestroy {
   }
 
 
+  updateData() {
+    this.firebaseData.addMattressesArray(dataActualMini2).subscribe()
+  }
 }

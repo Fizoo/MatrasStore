@@ -285,198 +285,205 @@ export const dataActualMini:Mattress[]=[
 
 export const dataActualMini2: Mattress[] = [
   {
-    "name": "BASIC S25",
-    "size": "90x200",
-    "price": 3250,
-    "status": 11,
-    "sku": 3269632,
-    "quantity": 3
+    name: "F30 Gold",
+    size: "160x200",
+    price: 11999,  // Діюча ціна
+    status: 11,
+    sku: 3262378,
+    quantity: 3    // Вільний залишок
   },
   {
-    "name": "GOLD F100",
-    "size": "160x200",
-    "price": 39999,
-    "status": 11,
-    "sku": 3351978,
-    "quantity": 3
+    name: "F100 Gold",
+    size: "160x200",
+    price: 20000,  // Діюча ціна
+    status: 11,
+    sku: 3351978,
+    quantity: 3    // Вільний залишок
   },
   {
-    "name": "GOLD F35",
-    "size": "90x200",
-    "price": 13999,
-    "status": 11,
-    "sku": 3228232,
-    "quantity": 2
+    name: "F35 Gold",
+    size: "160x200",
+    price: 15000,  // Діюча ціна
+    status: 11,
+    sku: 3228278,
+    quantity: 2    // Вільний залишок
   },
   {
-    "name": "PLUS S65",
-    "size": "90x200",
-    "price": 10999,
-    "status": 11,
-    "sku": 3257832,
-    "quantity": 2
+    name: "S25 Plus",
+    size: "160x200",
+    price: 9500,   // Діюча ціна
+    status: 11,
+    sku: 3264378,
+    quantity: 2    // Вільний залишок
   },
   {
-    "name": "GOLD F30",
-    "size": "160x200",
-    "price": 21999,
-    "status": 11,
-    "sku": 3262378,
-    "quantity": 2
+    name: "F100 Plus",
+    size: "160x200",
+    price: 21000,  // Діюча ціна
+    status: 11,
+    sku: 3269878,
+    quantity: 2    // Вільний залишок
   },
   {
-    "name": "PLUS S25",
-    "size": "160x200",
-    "price": 15999,
-    "status": 11,
-    "sku": 3264378,
-    "quantity": 2
+    name: "S110 Gold",
+    size: "140x200",
+    price: 21500,  // Діюча ціна
+    status: 41,
+    sku: 3362957,
+    quantity: 2    // Вільний залишок
   },
   {
-    "name": "BASIC F50",
-    "size": "90x200",
-    "price": 2000,
-    "status": 11,
-    "sku": 3267432,
-    "quantity": 2
+    name: "S110 Gold",
+    size: "160x200",
+    price: 24500,  // Діюча ціна
+    status: 11,
+    sku: 3362978,
+    quantity: 2    // Вільний залишок
   },
   {
-    "name": "BASIC S25",
-    "size": "160x200",
-    "price": 6000,
-    "status": 11,
-    "sku": 3269678,
-    "quantity": 2
+    name: "F85 Gold",
+    size: "160x200",
+    price: 16000,  // Діюча ціна
+    status: 11,
+    sku: 3379078,
+    quantity: 2    // Вільний залишок
   },
   {
-    "name": "PLUS F100",
-    "size": "90x200",
-    "price": 9999,
-    "status": 11,
-    "sku": 3269832,
-    "quantity": 2
+    name: "S45 Gold",
+    size: "160x200",
+    price: 21000,  // Діюча ціна
+    status: 11,
+    sku: 3380978,
+    quantity: 2    // Вільний залишок
   },
   {
-    "name": "PLUS F100",
-    "size": "160x200",
-    "price": 17999,
-    "status": 11,
-    "sku": 3269878,
-    "quantity": 2
+    name: "F35 Gold",
+    size: "80x190",
+    price: 7500,   // Діюча ціна
+    status: 41,
+    sku: 3228222,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "BASIC F5",
-    "size": "90x200",
-    "price": 1250,
-    "status": 11,
-    "sku": 3310932,
-    "quantity": 2
+    name: "F35 Gold",
+    size: "90x200",
+    price: 8500,   // Діюча ціна
+    status: 41,
+    sku: 3228232,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD S110",
-    "size": "90x200",
-    "price": 26999,
-    "status": 41,
-    "sku": 3269332,
-    "quantity": 2
+    name: "S65 Plus",
+    size: "90x200",
+    price: 6500,   // Діюча ціна
+    status: 11,
+    sku: 3257832,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD S110",
-    "size": "140x200",
-    "price": 42999,
-    "status": 41,
-    "sku": 3269397,
-    "quantity": 2
+    name: "F110 Gold",
+    size: "90x200",
+    price: 9200,   // Діюча ціна
+    status: 41,
+    sku: 3260432,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD F100",
-    "size": "180x200",
-    "price": 48999,
-    "status": 11,
-    "sku": 3269387,
-    "quantity": 2
+    name: "F30 Gold",
+    size: "90x200",
+    price: 6500,   // Діюча ціна
+    status: 12,
+    sku: 3262332,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD F110",
-    "size": "90x200",
-    "price": 22999,
-    "status": 41,
-    "sku": 3260432,
-    "quantity": 1
+    name: "S25 Plus",
+    size: "90x200",
+    price: 5500,   // Діюча ціна
+    status: 11,
+    sku: 3264322,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD F120",
-    "size": "90x200",
-    "price": 23999,
-    "status": 41,
-    "sku": 3260832,
-    "quantity": 1
+    name: "F95 Plus",
+    size: "90x200",
+    price: 5000,   // Діюча ціна
+    status: 11,
+    sku: 3343732,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "PLUS S25",
-    "size": "90x200",
-    "price": 8999,
-    "status": 41,
-    "sku": 3264332,
-    "quantity": 1
+    name: "F100 Gold",
+    size: "90x200",
+    price: 11000,  // Діюча ціна
+    status: 41,
+    sku: 3351932,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "BASIC S25",
-    "size": "140x200",
-    "price": 5000,
-    "status": 41,
-    "sku": 3269657,
-    "quantity": 1
+    name: "S110 Gold",
+    size: "90x200",
+    price: 13500,  // Діюча ціна
+    status: 41,
+    sku: 3362932,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "PLUS S55",
-    "size": "90x200",
-    "price": 9999,
-    "status": 41,
-    "sku": 3343732,
-    "quantity": 1
+    name: "S25 Gold",
+    size: "90x200",
+    price: 8500,   // Діюча ціна
+    status: 11,
+    sku: 3373032,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD F100",
-    "size": "90x200",
-    "price": 21999,
-    "status": 41,
-    "sku": 3351932,
-    "quantity": 1
+    name: "S25 Gold",
+    size: "160x200",
+    price: 15000,  // Діюча ціна
+    status: 11,
+    sku: 3373078,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD S100",
-    "size": "90x200",
-    "price": 24999,
-    "status": 41,
-    "sku": 3373132,
-    "quantity": 1
+    name: "S60 Gold",
+    size: "90x200",
+    price: 10000,  // Діюча ціна
+    status: 41,
+    sku: 3373532,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD S60",
-    "size": "90x200",
-    "price": 19999,
-    "status": 41,
-    "sku": 3373532,
-    "quantity": 1
+    name: "S60 Gold",
+    size: "140x200",
+    price: 16000,  // Діюча ціна
+    status: 41,
+    sku: 3373557,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD S60",
-    "size": "140x200",
-    "price": 31999,
-    "status": 41,
-    "sku": 3373557,
-    "quantity": 1
+    name: "F95 Gold",
+    size: "160x200",
+    price: 18000,  // Діюча ціна
+    status: 41,
+    sku: 3375178,
+    quantity: 1    // Вільний залишок
   },
   {
-    "name": "GOLD F85",
-    "size": "90x200",
-    "price": 16999,
-    "status": 11,
-    "sku": 3379032,
-    "quantity": 1
+    name: "F85 Gold",
+    size: "90x200",
+    price: 18000,  // Діюча ціна
+    status: 11,
+    sku: 3379032,
+    quantity: 1    // Вільний залишок
+  },
+  {
+    name: "S45 Gold",
+    size: "90x200",
+    price: 11500,  // Діюча ціна
+    status: 11,
+    sku: 3380932,
+    quantity: 1    // Вільний залишок
   }
-];
-
+]
 
 
