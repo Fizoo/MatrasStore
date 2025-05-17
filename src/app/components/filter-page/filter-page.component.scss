@@ -68,3 +68,12 @@ mat-checkbox{
     margin-right:  2rem;
   }
 }
+.hidden_btn {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; // Додає плавність при зміні прозорості
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}

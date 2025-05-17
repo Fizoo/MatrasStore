@@ -1,489 +1,93 @@
-import {Mattress} from "./data";
+import {Mattress} from "./data"
 
-export const dataActualMini:Mattress[]=[
-  {
-    "name": "GOLD F30",
-    "size": "90x200",
-    "price": 11999,
-    "status": 11,
-    "sku": 3262332,
-    "quantity": 3
-  },
-  {
-    "name": "BASIC S25",
-    "size": "90x200",
-    "price": 3250,
-    "status": 11,
-    "sku": 3269632,
-    "quantity": 3
-  },
-  {
-    "name": "GOLD F100",
-    "size": "160x200",
-    "price": 39999,
-    "status": 11,
-    "sku": 3351978,
-    "quantity": 3
-  },
-  {
-    "name": "GOLD F35",
-    "size": "90x200",
-    "price": 13999,
-    "status": 11,
-    "sku": 3228232,
-    "quantity": 2
-  },
-  {
-    "name": "PLUS S65",
-    "size": "90x200",
-    "price": 10999,
-    "status": 11,
-    "sku": 3257832,
-    "quantity": 2
-  },
-  {
-    "name": "GOLD F30",
-    "size": "160x200",
-    "price": 21999,
-    "status": 11,
-    "sku": 3262378,
-    "quantity": 2
-  },
-  {
-    "name": "PLUS S25",
-    "size": "160x200",
-    "price": 15999,
-    "status": 11,
-    "sku": 3264378,
-    "quantity": 2
-  },
-  {
-    "name": "BASIC F50",
-    "size": "90x200",
-    "price": 2000,
-    "status": 11,
-    "sku": 3267432,
-    "quantity": 2
-  },
-  {
-    "name": "BASIC S25",
-    "size": "160x200",
-    "price": 6000,
-    "status": 11,
-    "sku": 3269678,
-    "quantity": 2
-  },
-  {
-    "name": "PLUS F100",
-    "size": "90x200",
-    "price": 9999,
-    "status": 11,
-    "sku": 3269832,
-    "quantity": 2
-  },
-  {
-    "name": "PLUS F100",
-    "size": "160x200",
-    "price": 17999,
-    "status": 11,
-    "sku": 3269878,
-    "quantity": 2
-  },
-  {
-    "name": "BASIC F5",
-    "size": "90x200",
-    "price": 1250,
-    "status": 11,
-    "sku": 3310932,
-    "quantity": 2
-  },
-  {
-    "name": "GOLD S110",
-    "size": "90x200",
-    "price": 26999,
-    "status": 41,
-    "sku": 3269332,
-    "quantity": 2
-  },
-  {
-    "name": "GOLD S110",
-    "size": "140x200",
-    "price": 42999,
-    "status": 41,
-    "sku": 3269397,
-    "quantity": 2
-  },
-  {
-    "name": "GOLD F100",
-    "size": "180x200",
-    "price": 48999,
-    "status": 11,
-    "sku": 3269387,
-    "quantity": 2
-  },
-  {
-    "name": "GOLD S25",
-    "size": "160x200",
-    "price": 29999,
-    "status": 11,
-    "sku": 33373078,
-    "quantity": 2
-  },
-  {
-    "name": "GOLD F85",
-    "size": "90x200",
-    "price": 31999,
-    "status": 11,
-    "sku": 33379078,
-    "quantity": 2
-  },
-  {
-    "name": "GOLD S45",
-    "size": "160x200",
-    "price": 22999,
-    "status": 11,
-    "sku": 33380932,
-    "quantity": 2
-  },
-  {
-    "name": "GOLD S25",
-    "size": "90x200",
-    "price": 8500,
-    "status": 11,
-    "sku": 3373032,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD F35",
-    "size": "160x200",
-    "price": 25999,
-    "status": 11,
-    "sku": 33379032,
-    "quantity": 1
-  },
-  {
-    "name": "BASIC F10",
-    "size": "90x200",
-    "price": 1500,
-    "status": 11,
-    "sku": 33324232,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD F110",
-    "size": "90x200",
-    "price": 22999,
-    "status": 41,
-    "sku": 3260432,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD F120",
-    "size": "90x200",
-    "price": 23999,
-    "status": 41,
-    "sku": 3260832,
-    "quantity": 1
-  },
-  {
-    "name": "PLUS S25",
-    "size": "90x200",
-    "price": 8999,
-    "status": 41,
-    "sku": 3264332,
-    "quantity": 1
-  },
-  {
-    "name": "BASIC S25",
-    "size": "140x200",
-    "price": 5000,
-    "status": 41,
-    "sku": 3269657,
-    "quantity": 1
-  },
-  {
-    "name": "PLUS S55",
-    "size": "90x200",
-    "price": 9999,
-    "status": 41,
-    "sku": 3343732,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD F100",
-    "size": "90x200",
-    "price": 21999,
-    "status": 41,
-    "sku": 3351932,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD S100",
-    "size": "90x200",
-    "price": 24999,
-    "status": 41,
-    "sku": 3373132,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD S60",
-    "size": "90x200",
-    "price": 19999,
-    "status": 41,
-    "sku": 3373532,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD S60",
-    "size": "140x200",
-    "price": 31999,
-    "status": 41,
-    "sku": 3373557,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD F85",
-    "size": "90x200",
-    "price": 16999,
-    "status": 11,
-    "sku": 3379032,
-    "quantity": 1
-  },
-  {
-    "name": "BASIC S25",
-    "size": "90x200",
-    "price": 5000,
-    "status": 41,
-    "sku": 3269657,
-    "quantity": 1
-  },
-  {
-    "name": "PLUS S25",
-    "size": "90x200",
-    "price": 8999,
-    "status": 41,
-    "sku": 3264332,
-    "quantity": 1
-  },
-  {
-    "name": "GOLD F30",
-    "size": "160x200",
-    "price": 21999,
-    "status": 11,
-    "sku": 3262378,
-    "quantity": 2
-  },
-  {
-    "name": "BASIC S25",
-    "size": "160x200",
-    "price": 6000,
-    "status": 11,
-    "sku": 3269678,
-    "quantity": 2
-  }
+/*export const dataActualMini: Mattress[] = [
+  { name: "F110 GOLD", size: "90x200", price: 11500, quantity: 4, sku: 3260432, status: 41 },
+  { name: "F100 PLUS", size: "160x200", price: 10000, quantity: 4, sku: 3269878, status: 11 },
+  { name: "F30 GOLD", size: "160x200", price: 21999, quantity: 3, sku: 3262378, status: 11 },
+  { name: "S110 GOLD", size: "160x200", price: 24500, quantity: 3, sku: 3362978, status: 11 },
+  { name: "S60 GOLD", size: "90x200", price: 10000, quantity: 3, sku: 3373532, status: 41 },
+  { name: "S60 GOLD", size: "140x200", price: 16000, quantity: 3, sku: 3373557, status: 41 },
+  { name: "F35 GOLD", size: "90x200", price: 13999, quantity: 2, sku: 3228232, status: 11 },
+  { name: "F35 GOLD", size: "160x200", price: 25999, quantity: 2, sku: 3228278, status: 11 },
+  { name: "S65 PLUS", size: "90x200", price: 6500, quantity: 2, sku: 3257832, status: 11 },
+  { name: "F110 GOLD", size: "80x200", price: 10500, quantity: 2, sku: 3260423, status: 41 },
+  { name: "F110 GOLD", size: "140x200", price: 18500, quantity: 2, sku: 3260457, status: 41 },
+  { name: "F120 GOLD", size: "160x200", price: 43999, quantity: 2, sku: 3260878, status: 11 },
+  { name: "F30 GOLD", size: "90x200", price: 11999, quantity: 2, sku: 3262332, status: 11 },
+  { name: "F30 GOLD", size: "140x200", price: 18999, quantity: 2, sku: 3262357, status: 41 },
+  { name: "S25 PLUS", size: "160x200", price: 9500, quantity: 2, sku: 3264378, status: 11 },
+  { name: "F100 PLUS", size: "90x200", price: 5500, quantity: 2, sku: 3269832, status: 11 },
+  { name: "S20 PLUS", size: "80x190", price: 3250, quantity: 2, sku: 3341822, status: 41 },
+  { name: "S20 PLUS", size: "90x200", price: 3500, quantity: 2, sku: 3341832, status: 41 },
+  { name: "S110 GOLD", size: "140x200", price: 21500, quantity: 2, sku: 3362957, status: 41 },
+  { name: "S60 GOLD", size: "160x200", price: 18000, quantity: 2, sku: 3373578, status: 41 },
+  { name: "F85 GOLD", size: "160x200", price: 31999, quantity: 2, sku: 3379078, status: 11 },
+  { name: "F110 GOLD", size: "160x200", price: 21000, quantity: 1, sku: 3260478, status: 41 },
+  { name: "F30 GOLD", size: "80x200", price: 10999, quantity: 1, sku: 3262323, status: 41 },
+  { name: "F30 GOLD", size: "180x200", price: 23999, quantity: 1, sku: 3262381, status: 41 },
+  { name: "S25 PLUS", size: "90x200", price: 5500, quantity: 1, sku: 3264332, status: 12 },
+  { name: "F100 PLUS", size: "80x200", price: 5000, quantity: 1, sku: 3269823, status: 41 },
+  { name: "F100 PLUS", size: "140x200", price: 9000, quantity: 1, sku: 3269857, status: 41 },
+  { name: "F95 PLUS", size: "80x190", price: 8499, quantity: 1, sku: 3333722, status: 41 },
+  { name: "F95 PLUS", size: "80x200", price: 8499, quantity: 1, sku: 3333723, status: 41 },
+  { name: "F95 PLUS", size: "90x200", price: 8999, quantity: 1, sku: 3333732, status: 11 },
+  { name: "S55 PLUS", size: "80x190", price: 4500, quantity: 1, sku: 3343722, status: 41 },
+  { name: "S55 PLUS", size: "90x200", price: 5000, quantity: 1, sku: 3343732, status: 11 },
+  { name: "S55 PLUS", size: "140x200", price: 8000, quantity: 1, sku: 3343757, status: 41 },
+  { name: "S55 PLUS", size: "160x200", price: 9000, quantity: 1, sku: 3343778, status: 41 },
+  { name: "F100 GOLD", size: "160x200", price: 39999, quantity: 1, sku: 3351978, status: 11 },
+  { name: "S110 GOLD", size: "90x200", price: 13500, quantity: 1, sku: 3362932, status: 41 },
+  { name: "S25 GOLD", size: "90x200", price: 8500, quantity: 1, sku: 3373032, status: 11 },
+  { name: "S25 GOLD", size: "160x200", price: 15000, quantity: 1, sku: 3373078, status: 11 },
+  { name: "F95 GOLD", size: "120x200", price: 29999, quantity: 1, sku: 3375146, status: 41 },
+  { name: "F95 GOLD", size: "140x200", price: 31999, quantity: 1, sku: 3375157, status: 41 },
+  { name: "F85 GOLD", size: "80x200", price: 15999, quantity: 1, sku: 3379023, status: 41 },
+  { name: "F85 GOLD", size: "90x200", price: 16999, quantity: 1, sku: 3379032, status: 11 },
+  { name: "F85 GOLD", size: "120x200", price: 25999, quantity: 1, sku: 3379046, status: 41 },
+  { name: "S45 GOLD", size: "90x200", price: 11500, quantity: 1, sku: 3380932, status: 11 },
+  { name: "S45 GOLD", size: "160x200", price: 21000, quantity: 1, sku: 3380978, status: 11 },
+]*/
+
+
+export const dataActualMini2: Mattress[] =[
+    {"quantity": 1, "name": "GF35 OSELVA", "size": "90x200", "price": 7500, "status": 11, "sku": 3228232},
+    {"quantity": 1, "name": "GF35 OSELVA", "size": "140x200", "price": 12000, "status": 41, "sku": 3228257},
+    {"quantity": 3, "name": "GF35 OSELVA", "size": "160x200", "price": 13500, "status": 11, "sku": 3228278},
+    {"quantity": 1, "name": "PS65 EIRA", "size": "90x200", "price": 5500, "status": 11, "sku": 3257832},
+    {"quantity": 2, "name": "GF110 HOVDA", "size": "80x200", "price": 11000, "status": 41, "sku": 3260423},
+    {"quantity": 1, "name": "GF110 HOVDA", "size": "140x200", "price": 19000, "status": 41, "sku": 3260457},
+    {"quantity": 1, "name": "GF120 VENDO", "size": "90x200", "price": 13000, "status": 41, "sku": 3260832},
+    {"quantity": 2, "name": "GF120 VENDO", "size": "160x200", "price": 23000, "status": 12, "sku": 3260878},
+    {"quantity": 1, "name": "GF30 GLOMMA", "size": "80x200", "price": 5500, "status": 41, "sku": 3262323},
+    {"quantity": 1, "name": "GF30 GLOMMA", "size": "90x200", "price": 6000, "status": 11, "sku": 3262332},
+    {"quantity": 5, "name": "GF30 GLOMMA", "size": "160x200", "price": 11000, "status": 11, "sku": 3262378},
+    {"quantity": 2, "name": "PS25 STRIA", "size": "90x200", "price": 4000, "status": 12, "sku": 3264332},
+    {"quantity": 3, "name": "PS25 STRIA", "size": "160x200", "price": 7250, "status": 12, "sku": 3264378},
+    {"quantity": 4, "name": "BS25 BANELVA", "size": "90x200", "price": 2250, "status": 11, "sku": 3269632},
+    {"quantity": 2, "name": "BS25 BANELVA", "size": "140x200", "price": 3500, "status": 41, "sku": 3269657},
+    {"quantity": 2, "name": "BS25 BANELVA", "size": "160x200", "price": 4000, "status": 11, "sku": 3269678},
+    {"quantity": 2, "name": "PF100 HULDA", "size": "90x200", "price": 5000, "status": 11, "sku": 3269832},
+    {"quantity": 1, "name": "PF100 HULDA", "size": "140x200", "price": 8000, "status": 41, "sku": 3269857},
+    {"quantity": 2, "name": "PF100 HULDA", "size": "160x200", "price": 9000, "status": 11, "sku": 3269878},
+    {"quantity": 1, "name": "PF95 TENLA", "size": "80x200", "price": 4250, "status": 41, "sku": 3333723},
+    {"quantity": 1, "name": "PF95 TENLA", "size": "90x200", "price": 4750, "status": 11, "sku": 3333732},
+    {"quantity": 1, "name": "PS20 TRESA", "size": "80x190", "price": 3250, "status": 41, "sku": 3341822},
+    {"quantity": 2, "name": "PS20 TRESA", "size": "90x200", "price": 3500, "status": 41, "sku": 3341832},
+    {"quantity": 1, "name": "PS55 USMA", "size": "80x190", "price": 3600, "status": 41, "sku": 3343722},
+    {"quantity": 1, "name": "PS55 USMA", "size": "90x200", "price": 4000, "status": 11, "sku": 3343732},
+    {"quantity": 1, "name": "GF100 FISKELVA", "size": "90x200", "price": 11000, "status": 41, "sku": 3351932},
+    {"quantity": 2, "name": "GF100 FISKELVA", "size": "160x200", "price": 20000, "status": 11, "sku": 3351978},
+    {"quantity": 1, "name": "GS110 KATLA", "size": "90x200", "price": 10800, "status": 41, "sku": 3362932},
+    {"quantity": 2, "name": "GS110 KATLA", "size": "140x200", "price": 17200, "status": 41, "sku": 3362957},
+    {"quantity": 2, "name": "GS110 KATLA", "size": "160x200", "price": 19600, "status": 11, "sku": 3362978},
+    {"quantity": 2, "name": "GS25 EIDA", "size": "90x200", "price": 8000, "status": 11, "sku": 3373032},
+    {"quantity": 3, "name": "GS25 EIDA", "size": "160x200", "price": 14500, "status": 11, "sku": 3373078},
+    {"quantity": 1, "name": "GS60 SAMA", "size": "160x200", "price": 18000, "status": 41, "sku": 3373578},
+    {"quantity": 1, "name": "GF95 SENDA", "size": "120x200", "price": 15000, "status": 41, "sku": 3375146},
+    {"quantity": 1, "name": "GF95 SENDA", "size": "180x200", "price": 20000, "status": 41, "sku": 3375181},
+    {"quantity": 1, "name": "GF85 KVITA", "size": "80x200", "price": 7000, "status": 41, "sku": 3379023},
+    {"quantity": 1, "name": "GF85 KVITA", "size": "120x200", "price": 12000, "status": 41, "sku": 3379046},
+    {"quantity": 2, "name": "GF85 KVITA", "size": "160x200", "price": 14000, "status": 11, "sku": 3379078},
+    {"quantity": 1, "name": "GS45 EIMA", "size": "90x200", "price": 9000, "status": 11, "sku": 3380932},
+    {"quantity": 2, "name": "GS45 EIMA", "size": "160x200", "price": 16000, "status": 11, "sku": 3380978}
 ]
-
-export const dataActualMini2: Mattress[] = [
-  {
-    name: "F30 Gold",
-    size: "160x200",
-    price: 11999,  // Діюча ціна
-    status: 11,
-    sku: 3262378,
-    quantity: 3    // Вільний залишок
-  },
-  {
-    name: "F100 Gold",
-    size: "160x200",
-    price: 20000,  // Діюча ціна
-    status: 11,
-    sku: 3351978,
-    quantity: 3    // Вільний залишок
-  },
-  {
-    name: "F35 Gold",
-    size: "160x200",
-    price: 15000,  // Діюча ціна
-    status: 11,
-    sku: 3228278,
-    quantity: 2    // Вільний залишок
-  },
-  {
-    name: "S25 Plus",
-    size: "160x200",
-    price: 9500,   // Діюча ціна
-    status: 11,
-    sku: 3264378,
-    quantity: 2    // Вільний залишок
-  },
-  {
-    name: "F100 Plus",
-    size: "160x200",
-    price: 21000,  // Діюча ціна
-    status: 11,
-    sku: 3269878,
-    quantity: 2    // Вільний залишок
-  },
-  {
-    name: "S110 Gold",
-    size: "140x200",
-    price: 21500,  // Діюча ціна
-    status: 41,
-    sku: 3362957,
-    quantity: 2    // Вільний залишок
-  },
-  {
-    name: "S110 Gold",
-    size: "160x200",
-    price: 24500,  // Діюча ціна
-    status: 11,
-    sku: 3362978,
-    quantity: 2    // Вільний залишок
-  },
-  {
-    name: "F85 Gold",
-    size: "160x200",
-    price: 16000,  // Діюча ціна
-    status: 11,
-    sku: 3379078,
-    quantity: 2    // Вільний залишок
-  },
-  {
-    name: "S45 Gold",
-    size: "160x200",
-    price: 21000,  // Діюча ціна
-    status: 11,
-    sku: 3380978,
-    quantity: 2    // Вільний залишок
-  },
-  {
-    name: "F35 Gold",
-    size: "80x190",
-    price: 7500,   // Діюча ціна
-    status: 41,
-    sku: 3228222,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "F35 Gold",
-    size: "90x200",
-    price: 8500,   // Діюча ціна
-    status: 41,
-    sku: 3228232,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "S65 Plus",
-    size: "90x200",
-    price: 6500,   // Діюча ціна
-    status: 11,
-    sku: 3257832,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "F110 Gold",
-    size: "90x200",
-    price: 9200,   // Діюча ціна
-    status: 41,
-    sku: 3260432,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "F30 Gold",
-    size: "90x200",
-    price: 6500,   // Діюча ціна
-    status: 12,
-    sku: 3262332,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "S25 Plus",
-    size: "90x200",
-    price: 5500,   // Діюча ціна
-    status: 11,
-    sku: 3264322,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "F95 Plus",
-    size: "90x200",
-    price: 5000,   // Діюча ціна
-    status: 11,
-    sku: 3343732,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "F100 Gold",
-    size: "90x200",
-    price: 11000,  // Діюча ціна
-    status: 41,
-    sku: 3351932,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "S110 Gold",
-    size: "90x200",
-    price: 13500,  // Діюча ціна
-    status: 41,
-    sku: 3362932,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "S25 Gold",
-    size: "90x200",
-    price: 8500,   // Діюча ціна
-    status: 11,
-    sku: 3373032,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "S25 Gold",
-    size: "160x200",
-    price: 15000,  // Діюча ціна
-    status: 11,
-    sku: 3373078,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "S60 Gold",
-    size: "90x200",
-    price: 10000,  // Діюча ціна
-    status: 41,
-    sku: 3373532,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "S60 Gold",
-    size: "140x200",
-    price: 16000,  // Діюча ціна
-    status: 41,
-    sku: 3373557,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "F95 Gold",
-    size: "160x200",
-    price: 18000,  // Діюча ціна
-    status: 41,
-    sku: 3375178,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "F85 Gold",
-    size: "90x200",
-    price: 18000,  // Діюча ціна
-    status: 11,
-    sku: 3379032,
-    quantity: 1    // Вільний залишок
-  },
-  {
-    name: "S45 Gold",
-    size: "90x200",
-    price: 11500,  // Діюча ціна
-    status: 11,
-    sku: 3380932,
-    quantity: 1    // Вільний залишок
-  }
-]
-
-

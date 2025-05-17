@@ -52,6 +52,7 @@ export class FilterPageComponent implements OnInit, OnDestroy {
   @ViewChild('sidenav') sidenav: MatSidenav
 
   isOpen: any;
+  isSidenavOpen = true; // Спочатку відкрито
 
   constructor(
     private fb: FormBuilder,
@@ -66,8 +67,13 @@ export class FilterPageComponent implements OnInit, OnDestroy {
     // Отримання всіх даних та імена/розміри для чекбоксів
     this.dataSubscription = this.firebaseData.getAllMattresses().subscribe(data => {
       this.allData = data;
-      this.listName = Array.from(new Set(this.allData.map(el => el.name)));
-      this.listSize = Array.from(new Set(this.allData.map(el => el.size)));
+      this.listName = Array.from(new Set(this.allData.map(el => el.name))).sort((a, b) => a.localeCompare(b))
+      this.listSize = Array.from(new Set(this.allData.map(el => el.size)))  .sort((a, b) => {
+        // Розбиваємо розміри на числа і сортуємо за сумою
+        const sumA = a.split('x').map(Number).reduce((acc, val) => acc + val, 0);
+        const sumB = b.split('x').map(Number).reduce((acc, val) => acc + val, 0);
+        return sumA - sumB;
+      });
       this.updateFormControls();
     });
     // Підписуємось на зміни у формі
@@ -99,6 +105,7 @@ export class FilterPageComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
+
     const { sizes, names } = this.form.value;
     const selectedSizes = this.listSize.filter((_, i) => sizes[i]);
     const selectedNames = this.listName.filter((_, i) => names[i]);
@@ -116,7 +123,12 @@ export class FilterPageComponent implements OnInit, OnDestroy {
       }
     }
 
+
+
+
   }
+
+
 
   ngOnDestroy(): void {
     if (this.dataSubscription) {
@@ -139,4 +151,6 @@ export class FilterPageComponent implements OnInit, OnDestroy {
   updateData() {
     this.firebaseData.addMattressesArray(dataActualMini2).subscribe()
   }
+
+
 }

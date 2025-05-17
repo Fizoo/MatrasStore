@@ -3,14 +3,14 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatSortModule, Sort} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {FormsModule} from '@angular/forms';
-import {CommonModule, DecimalPipe} from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {Mattress} from '../../../data/data';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FirebaseDataService} from "../../services/firebase-data.service";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import {MatButton, MatFabButton, MatIconButton, MatMiniFabButton} from "@angular/material/button";
-import {MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {MatMiniFabButton} from "@angular/material/button";
+import {MatDialog} from "@angular/material/dialog";
 import {DialogElementComponent} from "./dialog-element/dialog-element.component";
 import {combineLatest} from "rxjs";
 import {FilterService} from "../../services/filter.service";
@@ -29,19 +29,11 @@ import {FilterListComponent} from "../filter-list/filter-list.component";
     MatPaginatorModule,
     FormsModule,
     CommonModule,
-    DecimalPipe,
     MatLabel,
     MatFormField,
     MatInput,
     MatProgressSpinner,
-    MatButton,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogTitle,
-    MatDialogClose,
-    MatFabButton,
     MatMiniFabButton,
-    MatIconButton,
     MatIcon,
     FilterListComponent
   ]
@@ -51,12 +43,12 @@ export class TableComponent implements OnInit {
 
   displayedColumns: string[] = []
   columnDefs = [
-    { columnDef: 'sku', header: 'Article', cell: (element: Mattress) => element.sku },
+    { columnDef: 'sku', header: 'SKU', cell: (element: Mattress) => element.sku },
     { columnDef: 'name', header: 'Name', cell: (element: Mattress) => element.name },
     { columnDef: 'size', header: 'Size', cell: (element: Mattress) => element.size },
-    { columnDef: 'status', header: 'Stat', cell: (element: Mattress) => element.status },
+    { columnDef: 'status', header: 'S', cell: (element: Mattress) => element.status },
     { columnDef: 'price', header: 'Price', cell: (element: Mattress) => element.price },
-    { columnDef: 'quantity', header: 'Quantity', cell: (element: Mattress) => element.quantity }
+    { columnDef: 'quantity', header: 'Q', cell: (element: Mattress) => element.quantity }
   ]
 
   dataSource: MatTableDataSource<Mattress> = new MatTableDataSource();
@@ -76,12 +68,11 @@ export class TableComponent implements OnInit {
 
     combineLatest([
       this.firebaseService.getAllMattresses(), // Потік з Firebase
-
       this.filterService.selectedNames$,
       this.filterService.selectedSizes$// Ваш rxjs потік
     ]).subscribe({
       next: ([allMattresses, names, sizes]) => {
-        console.log(names,sizes)
+
         // Використовуємо дані з  джерел
         this.dataSource.data = allMattresses.filter(el =>{
           const matchesQuantity = el.quantity > 0;
@@ -89,7 +80,16 @@ export class TableComponent implements OnInit {
           const matchesSize = !sizes.length || sizes.includes(el.size); // Фільтр по розмірах
           return matchesQuantity && matchesName && matchesSize;
         })
-        this.sortedData = [...this.dataSource.data];
+        this.sortedData = [...this.dataSource.data]
+          .map(({name,...rest})=>({
+            ...rest,
+            name:name.split(' ').find(part=>/\d/.test(part)) || name
+          }))
+          .sort((a, b) => b.quantity - a.quantity);
+
+        // Після завантаження даних, виводимо кількість матрасів
+        const count=this.sortedData.reduce((acc,prev)=>acc+prev.quantity,0)
+        console.log("Count mattress=",count)
 
         this.isLoading = false;
       },
