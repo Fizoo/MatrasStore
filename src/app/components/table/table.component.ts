@@ -81,10 +81,10 @@ export class TableComponent implements OnInit {
           return matchesQuantity && matchesName && matchesSize;
         })
         this.sortedData = [...this.dataSource.data]
-          .map(({name,...rest})=>({
+          /*.map(({name,...rest})=>({
             ...rest,
             name:name.split(' ').find(part=>/\d/.test(part)) || name
-          }))
+          }))*/
           .sort((a, b) => b.quantity - a.quantity);
 
         // Після завантаження даних, виводимо кількість матрасів
